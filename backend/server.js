@@ -2,16 +2,20 @@
 // import cors from "cors";
 // import userinfo from "./api/userinfo.route.js";
 
-const express = require('express');
+const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.get("/api" , (req , res) => {
-    res.json({ message: "ligma balls" });
-})
+// app.get("/", function (req, res) {
+//   res.render("index", {});
+// });
 
-app.listen(PORT , () => {
-    console.log(`Server listening on ${PORT}`);
+app.get("/api", (req, res) => {
+  res.json({ message: "ligma balls" });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
 });
 
 // app.use(cors());
