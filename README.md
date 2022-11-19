@@ -1,2 +1,2 @@
 # HackWestern9
-Top G Sheesh
+Goal orientated community social media.
