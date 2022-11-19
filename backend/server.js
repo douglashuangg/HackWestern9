@@ -15,7 +15,7 @@ app.listen(PORT , () => {
 });
 
 // app.use(cors());
-// app.use(express.json());
+// app.usehttp://localhost:3001/api(express.json());
 // server accepts json in body of request, server can read json
 
 // app.use("/api/v1/userinfo", userinfo);
