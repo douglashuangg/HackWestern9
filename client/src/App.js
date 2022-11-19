@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element=<HomePage /> exact />
+        <Route path="/" element=<Login /> exact />
         <Route path="/login" element=<Login /> />
         <Route path="/yourtimeline" element=<Timeline /> />
         <Route path="/explore" element=<Explore /> />

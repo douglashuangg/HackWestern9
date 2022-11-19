@@ -2,16 +2,29 @@
 // import cors from "cors";
 // import userinfo from "./api/userinfo.route.js";
 
+const { response } = require("express");
 const express = require("express");
+var bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// app.use(bodyParser.json());
 // app.get("/", function (req, res) {
 //   res.render("index", {});
 // });
+app.use(express.json());
 
 app.get("/api", (req, res) => {
   res.json({ message: "ligma balls" });
+});
+
+app.get("/getAllUserPosts", (req, res) => {
+  res.json({ message: "ligma balls" });
+});
+
+app.post("/yourtimeline", (req, res) => {
+  console.log(req.body);
+  res.json({ status: "success" });
 });
 
 app.listen(PORT, () => {
