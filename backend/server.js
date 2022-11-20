@@ -9,8 +9,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const ejs = require("ejs");
-const bodyParser = require("body-parser");
-const User = require("C:/HackWestern9/models/user");
+const User = require("../models/user");
 
 // app.use(bodyParser.json());
 // app.get("/", function (req, res) {
@@ -19,7 +18,7 @@ const User = require("C:/HackWestern9/models/user");
 // app.use(express.json());
 
 const uri =
-  "mongodb+srv://jeffrey:<03120312Jeff!>@cluster0.emywofb.mongodb.net/Users?retryWrites=true&w=majority"; //
+  "mongodb+srv://jeffrey:03120312Jeff!@cluster0.emywofb.mongodb.net/Users?retryWrites=true&w=majority"; //
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 // .then(() => console.log('connected'))
 // .catch((err) => console.log(err));
