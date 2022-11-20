@@ -1,6 +1,6 @@
-// import express from "express";
-// import cors from "cors";
-// import userinfo from "./api/userinfo.route.js";
+// // import express from "express";
+// // import cors from "cors";
+// // import userinfo from "./api/userinfo.route.js";
 
 const { response } = require("express");
 const express = require("express");
