@@ -4,38 +4,12 @@ const uri =
 
 const client = new MongoClient(uri);
 client.connect();
-// async function main() {
-//   try {
-//     await client.connect();
-//     // await client
-//     //   .db("HACKWESTERN")
-//     //   .collection("Users")
-//     //   .updateMany({}, { $set: { postData: [{ posts: "", goals: "" }] } });
-//     // await findOneListingByName(client);
-// //   } finally {
-// //     await client.close();
-// //   }
-//   }
-// }
-// main().catch(console.error);
 
-// async function main() {
-//   const uri =
-//     "mongodb+srv://jeffrey:03120312Jeff!@cluster0.emywofb.mongodb.net/HACKWESTERN?retryWrites=true&w=majority";
-
-//   const client = new MongoClient(uri);
-
-// try {
-//   await client.connect();
-//   await read(client , "dhuang");
-// } finally {
-//   await client.close();
-// }
-
-// main().catch(console.error);
-
-async function create(client, firstname, username, password) {
-  const result = await client.db("HACKWESTERN").collection("Users").insertOne({
+async function create(firstname, username, password) {
+  const result = await client
+  .db("HACKWESTERN")
+  .collection("Users")
+  .insertOne({
     firstname: firstname,
     username: username,
     password: password,
@@ -49,8 +23,11 @@ async function create(client, firstname, username, password) {
   }
 }
 
-async function read(client, username) {
-  const result = await client.db("HACKWESTERN").collection("Users").findOne({
+async function read(username) {
+  const result = await client
+  .db("HACKWESTERN")
+  .collection("Users")
+  .findOne({
     username: username,
   });
 
@@ -61,11 +38,14 @@ async function read(client, username) {
   }
 }
 
-async function update(client, username, goal) {
+async function update(username, goal) {
   const result = await client
     .db("HACKWESTERN")
     .collection("Users")
-    .updateOne({ username: username }, { $set: { goal: goal } });
+    .updateOne(
+      { username: username }, 
+      { $set: { goal: goal } 
+    });
 
   if (result) {
     console.log(result);
@@ -74,11 +54,13 @@ async function update(client, username, goal) {
   }
 }
 
-async function destroy(client, username) {
+async function destroy(username) {
   const result = await client
     .db("HACKWESTERN")
     .collection("Users")
-    .deleteOne({ username: username });
+    .deleteOne(
+      { username: username }
+    );
 
   if (result) {
     console.log(result);
@@ -104,8 +86,8 @@ async function savePosts(posts) {
     .collection("Users")
     .updateOne(
       { username: user.username },
-      {
-        $set: {
+      {$set:
+        {
           postData: posts.postData,
         },
       }
@@ -122,7 +104,6 @@ async function savePosts(posts) {
 }
 
 module.exports = {
-  findOneListingByName,
   savePosts,
   create,
   read,
