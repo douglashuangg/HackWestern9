@@ -78,3 +78,10 @@ async function destroy(client , username) {
     console.log(`Error Deleting User`)
   }
 }
+
+module.exports = {
+  create ,
+  read ,
+  update ,
+  destroy ,
+};
