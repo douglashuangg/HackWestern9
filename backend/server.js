@@ -36,12 +36,15 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/getAllUserPosts", (req, res) => {
-  res.json({ message: "ligma balls" });
+  model
+    .getAllUserPosts("jefftheli")
+    .then((data) => res.json({ message: data }));
 });
 
 app.post("/yourtimeline", (req, res) => {
-  console.log(req.body);
-  model.savePosts(req.body);
+  // console.log(req.body);
+  console.log(req.body[0]);
+  model.savePosts("jefftheli", req.body[0]);
   res.json({ status: "success" });
 });
 

@@ -6,10 +6,7 @@ const client = new MongoClient(uri);
 client.connect();
 
 async function create(firstname, username, password) {
-  const result = await client
-  .db("HACKWESTERN")
-  .collection("Users")
-  .insertOne({
+  const result = await client.db("HACKWESTERN").collection("Users").insertOne({
     firstname: firstname,
     username: username,
     password: password,
@@ -24,10 +21,7 @@ async function create(firstname, username, password) {
 }
 
 async function read(username) {
-  const result = await client
-  .db("HACKWESTERN")
-  .collection("Users")
-  .findOne({
+  const result = await client.db("HACKWESTERN").collection("Users").findOne({
     username: username,
   });
 
@@ -43,10 +37,7 @@ async function update(username, goal) {
   const result = await client
     .db("HACKWESTERN")
     .collection("Users")
-    .updateOne(
-      { username: username }, 
-      { $set: { goal: goal } 
-    });
+    .updateOne({ username: username }, { $set: { goal: goal } });
 
   if (result) {
     console.log(result);
@@ -60,9 +51,7 @@ async function destroy(username) {
   const result = await client
     .db("HACKWESTERN")
     .collection("Users")
-    .deleteOne(
-      { username: username }
-    );
+    .deleteOne({ username: username });
 
   if (result) {
     console.log(result);
@@ -72,37 +61,48 @@ async function destroy(username) {
   }
 }
 
-async function savePosts(posts) {
-  //   const result = await client.db("HACKWESTERN").collection("Users").save(posts);
+async function savePosts(username, posts) {
   let user = await client
     .db("HACKWESTERN")
     .collection("Users")
-    .findOne({ username: posts.username });
-  console.log(posts);
-  console.log(user);
-  //   let userId = user._id
-
-  //   let newEmail = "asdf@asdf.com"
+    .findOne({ username: username });
+  //   console.log(posts);
+  //   console.log(user);
+  const postDataObject = { posts: posts.posts, goal: posts.goal };
 
   let result = await client
     .db("HACKWESTERN")
     .collection("Users")
     .updateOne(
-      { username: user.username },
-      {$set:
-        {
-          postData: posts.postData,
+      { username: username },
+      {
+        $set: {
+          postData: postDataObject,
         },
       }
     );
 
-  //   if (updated) {
-  //       console.log("updated")
-  //   }
   if (result) {
     console.log(result);
   } else {
     console.log(`Save failed`);
+  }
+}
+
+async function getAllUserPosts(username) {
+  //   const result = await client.db("HACKWESTERN").collection("Users").save(posts);
+  username = "jefftheli";
+
+  let result = await client
+    .db("HACKWESTERN")
+    .collection("Users")
+    .findOne({ username: username });
+
+  if (result) {
+    console.log(result.postData);
+    return result.postData;
+  } else {
+    console.log(`Get failed`);
   }
 }
 
@@ -112,4 +112,5 @@ module.exports = {
   read,
   update,
   destroy,
+  getAllUserPosts,
 };
