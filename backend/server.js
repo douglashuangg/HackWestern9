@@ -1,5 +1,6 @@
 const express = require("express");
 var bodyParser = require("body-parser");
+let model = require("./crud.js");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const ejs = require("ejs");
@@ -11,6 +12,8 @@ app.use(
     extended: true,
   })
 );
+
+model.findOneListingByName();
 
 app.use(express.static(__dirname + "/public"));
 
@@ -30,6 +33,7 @@ app.get("/getAllUserPosts", (req, res) => {
 
 app.post("/yourtimeline", (req, res) => {
   console.log(req.body);
+  model.savePosts(req.body);
   res.json({ status: "success" });
 });
 
