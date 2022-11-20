@@ -21,7 +21,7 @@ export default function Sidebar() {
             <RssFeed className="sidebarIcon" />
             <span className="sidebarListItemText">Feed</span>
           </li>
-          <li className="sidebarListItem">
+          {/* <li className="sidebarListItem">
             <Chat className="sidebarIcon" />
             <span className="sidebarListItemText">Chats</span>
           </li>
@@ -48,7 +48,7 @@ export default function Sidebar() {
           <li className="sidebarListItem">
             <Event className="sidebarIcon" />
             <span className="sidebarListItemText">Events</span>
-          </li>
+          </li> */}
         </ul>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">

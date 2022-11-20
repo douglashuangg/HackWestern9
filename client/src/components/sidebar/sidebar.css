@@ -1,7 +1,8 @@
 .sidebar {
-  flex: 3;
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
+  flex: 1;
+  /* height: calc(100vh - 50px); */
+  width: 1px;
+  /* overflow-y: scroll; */
   position: sticky;
   top: 50px;
 }
@@ -27,8 +28,8 @@
 }
 
 .sidebarListItem {
-  display: flex;
-  align-items: center;
+  display: flex; 
+  align-items: left;
   margin-bottom: 20px;
   cursor: pointer;
 }
@@ -38,7 +39,7 @@
 }
 
 .sidebarButton {
-  width: 150px;
+  width: 10px;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -46,11 +47,11 @@
 }
 
 .sidebarHr {
-  margin: 20px 0;
+  margin: 2px 0;
 }
 
-.sidebarFriendList {
+/* .sidebarFriendList {
   padding: 0;
   margin: 0;
   list-style: none;
-}
+} */

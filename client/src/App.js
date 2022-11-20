@@ -1,13 +1,13 @@
 import "./App.css";
 import React from "react";
-import Home from "./pages/home/Home";
-import { Route, Routes } from "react-router-dom";
+// import Home from "./pages/home/Home";
+// import { Route, Routes } from "react-router-dom";
 
-import Login from "./components/Login";
+// import Login from "./components/Login";
 // import HomePage from "./components/HomePage";
-import Navbar from "./components/Navbar";
-import Timeline from "./components/Timeline";
-import Explore from "./components/Explore";
+// import Navbar from "./components/Navbar";
+// import Timeline from "./components/Timeline";
+// import Explore from "./components/Explore";
 // import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 // import Register from "./pages/register/Register";
@@ -15,14 +15,8 @@ import Profile from "./pages/profile/Profile";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <Profile />;
-      <Routes>
-        <Route path="/" element=<Login /> exact />
-        <Route path="/login" element=<Login /> />
-        <Route path="/yourtimeline" element=<Timeline /> />
-        <Route path="/explore" element=<Explore /> />
-      </Routes>
       {/* <header className="App-header">
         <h1>BeSuccessful</h1>
 

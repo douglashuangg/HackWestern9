@@ -34,7 +34,7 @@ function Timeline() {
   }
 
   return (
-    <>
+    <div style={{ width: "120rem" }}>
       <h1>Your Timeline</h1>
       <label>Insight: </label>
       <textarea
@@ -43,7 +43,7 @@ function Timeline() {
       ></textarea>
       <button onClick={savePost}>Save</button>
       <p>{data.post}</p>
-    </>
+    </div>
   );
 }
 

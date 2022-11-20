@@ -1,5 +1,6 @@
 import "./Topbar.css";
 import { Search, Person, Feed, Notifications } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
@@ -18,8 +19,33 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
+          {/* <span className="topbarLink"> Homepage </span>
+          <span className="topbarLink"> Timeline </span> */}
+
+          <Link
+            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            to="/"
+          >
+            Homepage
+          </Link>
+          <Link
+            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            to="/login"
+          >
+            Login{" "}
+          </Link>
+          <Link
+            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            to="/yourtimeline"
+          >
+            Your Timeline{" "}
+          </Link>
+          <Link
+            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            to="/explore"
+          >
+            Explore{" "}
+          </Link>
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
