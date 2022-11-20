@@ -46,6 +46,9 @@ rl.question(prompt, function (answer) {
             console.log('')
             // console.log('Choose a goal towards your future career (Enter an integer): ')
 
+            // remove last element to remove string that was cut off
+            array.splice(-1)
+
             // Loop through the array and print options
             for (var i = 0; i < array.length; i++){
                 console.log(array[i]);
@@ -64,8 +67,6 @@ rl.question(prompt, function (answer) {
                 console.log('Your goal is: ' + array[choice - 1]);
                 goal = array[choice - 1];
             });
-
-            
 
         })();
     }
