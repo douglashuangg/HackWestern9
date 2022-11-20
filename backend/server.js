@@ -15,18 +15,16 @@ app.use(
   })
 );
 
-
-
 app.use(express.static(__dirname + "/public"));
 
 app.post("/login", (req, res) => {
-  username = req.body.username
-  password = req.body.password
+  username = req.body.username;
+  password = req.body.password;
   const checkLogin = model.read(username);
   if (checkLogin.username == username && checkLogin.password == password) {
     console.log("Login successful");
     //res.redirect("/survey")
-  } 
+  }
 });
 
 app.get("/api", (req, res) => {
@@ -34,12 +32,15 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/getAllUserPosts", (req, res) => {
-  res.json({ message: "ligma balls" });
+  model
+    .getAllUserPosts("jefftheli")
+    .then((data) => res.json({ message: data }));
 });
 
 app.post("/yourtimeline", (req, res) => {
-  console.log(req.body);
-  model.savePosts(req.body);
+  // console.log(req.body);
+  console.log(req.body[0]);
+  model.savePosts("jefftheli", req.body[0]);
   res.json({ status: "success" });
 });
 
