@@ -15,18 +15,20 @@ app.use(
   })
 );
 
-
-
 app.use(express.static(__dirname + "/public"));
 
 app.post("/login", (req, res) => {
-  username = req.body.username
-  password = req.body.password
-  const checkLogin = model.read(username);
-  if (checkLogin.username == username && checkLogin.password == password) {
-    console.log("Login successful");
-    //res.redirect("/survey")
-  } 
+  username = req.body.username;
+  password = req.body.password;
+  model.read(username)
+    .then((data) => {
+      if (data.username == username && data.password == password) {
+        console.log(`Login successful`);
+        res.redirect("/yourtimeline");
+      } else {
+        console.log(password);
+      }
+    })
 });
 
 app.get("/api", (req, res) => {

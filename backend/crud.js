@@ -17,7 +17,7 @@ async function create(firstname, username, password) {
 
   if (result) {
     console.log(result);
-    validInput = true;
+    return;
   } else {
     console.log(`Error Creating User`);
   }
@@ -33,6 +33,7 @@ async function read(username) {
 
   if (result) {
     console.log(result);
+    return result;
   } else {
     console.log(`No Listings Found With that Name`);
   }
@@ -49,6 +50,7 @@ async function update(username, goal) {
 
   if (result) {
     console.log(result);
+    return;
   } else {
     console.log(`Error Updating Goal`);
   }
@@ -64,6 +66,7 @@ async function destroy(username) {
 
   if (result) {
     console.log(result);
+    return;
   } else {
     console.log(`Error Deleting User`);
   }

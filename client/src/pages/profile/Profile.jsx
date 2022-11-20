@@ -1,7 +1,7 @@
 import "./profile.css";
 import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../login/Login";
 import Timeline from "../../components/Timeline";
 import Explore from "../../components/Explore";
@@ -18,7 +18,7 @@ export default function Profile() {
       <div className="profile">
         <Routes>
           <Route path="*" element=<NotFound /> />
-          <Route path="/" element=<Login /> exact />
+          <Route path="/" element={<Navigate to='/login'/>} exact />
           <Route path="/login" element=<Login /> />
           <Route path="/yourtimeline" element=<Timeline /> />
           <Route path="/explore" element=<Explore /> />
