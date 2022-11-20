@@ -33,6 +33,7 @@ app.get("/getAllUserPosts", (req, res) => {
 
 app.post("/yourtimeline", (req, res) => {
   console.log(req.body);
+  model.savePosts(req.body);
   res.json({ status: "success" });
 });
 
