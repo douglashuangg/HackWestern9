@@ -3,12 +3,15 @@
 // import userinfo from "./api/userinfo.route.js";
 
 const express = require("express");
+let prediction = require("./Cohere.js")
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 // app.get("/", function (req, res) {
 //   res.render("index", {});
 // });
+
+prediction.getSubGoals();
 
 app.get("/api", (req, res) => {
   res.json({ message: "ligma balls" });
@@ -17,6 +20,10 @@ app.get("/api", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+// import predict from './Cohere.js';
+
+// predict('My prediction is that')
 
 // app.use(cors());
 // app.usehttp://localhost:3001/api(express.json());
