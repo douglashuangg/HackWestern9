@@ -4,6 +4,11 @@ const uri =
 
 const client = new MongoClient(uri);
 client.connect();
+// client
+//   .db("HACKWESTERN")
+//   .collection("Users")
+//   .updateMany({}, { $set: { postValues: [{ posts: "", goal: "" }] } });
+//   db.yourCollection.updateMany({}, {$set:{"someField": "someValue"}})
 
 async function create(firstname, username, password) {
   const result = await client.db("HACKWESTERN").collection("Users").insertOne({
@@ -73,9 +78,7 @@ async function savePosts(username, posts) {
     .updateOne(
       { username: username },
       {
-        $set: {
-          postData: postDataObject,
-        },
+        $push: { postValues: postDataObject },
       }
     );
 
@@ -96,8 +99,8 @@ async function getAllUserPosts(username) {
     .findOne({ username: username });
 
   if (result) {
-    console.log(result.postData);
-    return result.postData;
+    console.log(result.postValues);
+    return result.postValues;
   } else {
     console.log(`Get failed`);
   }

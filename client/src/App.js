@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      <Profile />;
+      <Profile />
       {/* <header className="App-header">
         <h1>BeSuccessful</h1>
 
