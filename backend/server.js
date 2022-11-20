@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 const User = require("C:/HackWestern9/models/user")
 
 
-const uri = "mongodb+srv://jeffrey:<03120312Jeff!>@cluster0.emywofb.mongodb.net/Users?retryWrites=true&w=majority"; //
+const uri = "mongodb+srv://jeffrey:03120312Jeff!@cluster0.emywofb.mongodb.net/Users?retryWrites=true&w=majority"; //
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true})
     // .then(() => console.log('connected'))
     // .catch((err) => console.log(err));
