@@ -13,7 +13,7 @@ async function main() {
   //   await client.close();
   // }
 }
-main().catch(console.error);
+// main().catch(console.error);
 
 async function create(client , firstname , username , password) {
   const result = await client
