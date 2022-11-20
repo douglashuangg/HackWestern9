@@ -23,25 +23,45 @@ export default function Topbar() {
           <span className="topbarLink"> Timeline </span> */}
 
           <Link
-            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            style={{
+              padding: "1rem",
+              color: "white",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
             to="/"
           >
             Homepage
           </Link>
           <Link
-            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            style={{
+              padding: "1rem",
+              color: "white",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
             to="/login"
           >
             Login{" "}
           </Link>
           <Link
-            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            style={{
+              padding: "1rem",
+              color: "white",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
             to="/yourtimeline"
           >
             Your Timeline{" "}
           </Link>
           <Link
-            style={{ padding: "1rem", color: "white", cursor: "pointer" }}
+            style={{
+              padding: "1rem",
+              color: "white",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
             to="/explore"
           >
             Explore{" "}
