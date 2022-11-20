@@ -26,7 +26,7 @@ app.post("/login", (req, res) => {
       if (data.username == username && data.password == password) {
         console.log(`Login successful`);
         currUser = username;
-        res.redirect("/yourtimeline");
+        res.redirect("/survey");
       } else {
         console.log(password);
       }
