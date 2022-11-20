@@ -59,3 +59,7 @@ textarea {
   min-height: 30px;
   min-width: 120px;
 }
+
+.button3:hover {
+  cursor: pointer;
+}

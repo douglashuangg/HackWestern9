@@ -6,13 +6,23 @@ export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">BeSuccessful</span>
+        <Link
+          style={{
+            padding: "1rem",
+            color: "white",
+            cursor: "pointer",
+            textDecoration: "none",
+          }}
+          to="/"
+        >
+          <span className="logo">BeSuccessful</span>
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
           <Search className="searchIcon" />
           <input
-            placeholder="Search for friend, post or video"
+            placeholder="Search for a goal or post"
             className="searchInput"
           />
         </div>
@@ -29,20 +39,9 @@ export default function Topbar() {
               cursor: "pointer",
               textDecoration: "none",
             }}
-            to="/"
-          >
-            Homepage
-          </Link>
-          <Link
-            style={{
-              padding: "1rem",
-              color: "white",
-              cursor: "pointer",
-              textDecoration: "none",
-            }}
             to="/login"
           >
-            Login{" "}
+            Login
           </Link>
           <Link
             style={{
@@ -53,7 +52,7 @@ export default function Topbar() {
             }}
             to="/yourtimeline"
           >
-            Your Timeline{" "}
+            Your Timeline
           </Link>
           <Link
             style={{
@@ -64,11 +63,11 @@ export default function Topbar() {
             }}
             to="/explore"
           >
-            Explore{" "}
+            Explore
           </Link>
         </div>
-        <div className="topbarIcons">
-          <div className="topbarIconItem">
+        {/* <div className="topbarIcons"> */}
+        {/* <div className="topbarIconItem">
             <Person />
             <span className="topbarIconBadge">1</span>
           </div>
@@ -79,8 +78,8 @@ export default function Topbar() {
           <div className="topbarIconItem">
             <Notifications />
             <span className="topbarIconBadge">1</span>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <img src="/assets/Pfp/Pfp1.jpg" alt="" className="topbarImg" />
       </div>
     </div>

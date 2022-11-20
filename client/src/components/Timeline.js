@@ -16,12 +16,14 @@ function Timeline() {
     getAllUserPosts();
   }, []);
   function getAllUserPosts() {
-    fetch("/GetAllUserPosts")
-      .then((res) => res.json())
-      .then((data) => {
-        setReceivedPosts(data.message);
-        console.log(data);
-      });
+    setTimeout(() => {
+      fetch("/GetAllUserPosts")
+        .then((res) => res.json())
+        .then((data) => {
+          setReceivedPosts(data.message);
+          console.log(data);
+        });
+    }, 1000);
   }
 
   function savePost() {
@@ -56,42 +58,45 @@ function Timeline() {
           placeholder="What did you learn today?"
           onChange={updatePost}
         ></textarea>
-        <label>Goal</label>
-        <textarea
-          placeholder="What goal is this under (should be select options)"
+        {/* <label>Goal</label> */}
+        {/* <textarea
+          placeholder="What goal is this under?"
           onChange={updateGoal}
-        ></textarea>
+        ></textarea> */}
         <button className="button3" onClick={savePost}>
           Save
         </button>
         {/* <p>{data.post}</p>
       <p>{goal.goal}</p> */}
 
-        {receivedPosts.reverse().map((item) => (
-          <div
-            style={{
-              padding: "0",
-              margin: "0",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+        {receivedPosts
+          .filter((x) => x.posts !== "")
+          .reverse()
+          .map((item) => (
             <div
               style={{
-                height: "15rem",
-                width: "40rem",
-                border: "solid",
-                borderRadius: "2rem",
-                margin: "2rem 0",
+                padding: "0",
+                margin: "0",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <h1 style={{ padding: "1rem 0 0 0" }}>Your highlight</h1>
-              <p>{item.posts}</p>
-              <p style={{ color: "red" }}>{item.goal}</p>
+              <div
+                style={{
+                  height: "15rem",
+                  width: "40rem",
+                  border: "solid",
+                  borderRadius: "2rem",
+                  margin: "2rem 0",
+                }}
+              >
+                <h1 style={{ padding: "1rem 0 0 0" }}>Your highlight</h1>
+                <p>{item.posts}</p>
+                {/* <p style={{ color: "red" }}>{item.goal}</p> */}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       {/* // </div> */}
     </>

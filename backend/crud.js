@@ -100,7 +100,7 @@ async function getAllUserPosts(username) {
     .db("HACKWESTERN")
     .collection("Users")
     .findOne({ username: username });
-
+  console.log(username);
   if (result) {
     console.log("hello");
     console.log(result.postsFeed);

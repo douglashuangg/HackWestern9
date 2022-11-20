@@ -25,6 +25,7 @@ app.post("/login", (req, res) => {
     if (data.username == username && data.password == password) {
       console.log(`Login successful`);
       currUser = username;
+      console.log(username);
       res.redirect("/survey");
     } else {
       console.log(password);
@@ -37,7 +38,8 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/getAllUserPosts", (req, res) => {
-  console.log(req.body);
+  console.log("hi");
+  console.log(currUser);
   model.getAllUserPosts(currUser).then((data) => res.json({ message: data }));
 });
 

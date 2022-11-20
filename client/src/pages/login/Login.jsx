@@ -42,7 +42,7 @@ export default function Login() {
         <div className="loginLeft">
           <h3 className="loginLogo">BeSuccessful</h3>
           <span className="loginDesc">
-            Document your success journey one image at a time!
+            Document your success journey one day at a time!
           </span>
         </div>
         <div className="loginRight">
