@@ -14,12 +14,12 @@ export default function Profile() {
   return (
     <>
       <Topbar />
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       <div className="profile">
         <Routes>
           <Route path="*" element=<NotFound /> />
-          <Route path="/" element={<Navigate to='/login'/>} exact />
+          <Route path="/" element={<Navigate to="/login" />} exact />
           <Route path="/login" element=<Login /> />
           <Route path="/survey" element=<Survey /> />
           <Route path="/yourtimeline" element=<Timeline /> />

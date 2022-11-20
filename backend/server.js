@@ -21,16 +21,16 @@ app.use(express.static(__dirname + "/public"));
 app.post("/login", (req, res) => {
   username = req.body.username;
   password = req.body.password;
-  model.read(username)
-    .then((data) => {
-      if (data.username == username && data.password == password) {
-        console.log(`Login successful`);
-        currUser = username;
-        res.redirect("/survey");
-      } else {
-        console.log(password);
-      }
-    })
+  model.read(username).then((data) => {
+    if (data.username == username && data.password == password) {
+      console.log(`Login successful`);
+      currUser = username;
+      console.log(username);
+      res.redirect("/survey");
+    } else {
+      console.log(password);
+    }
+  });
 });
 
 app.get("/api", (req, res) => {
@@ -38,15 +38,15 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/getAllUserPosts", (req, res) => {
-  model
-    .getAllUserPosts("jefftheli")
-    .then((data) => res.json({ message: data }));
+  console.log("hi");
+  console.log(currUser);
+  model.getAllUserPosts(currUser).then((data) => res.json({ message: data }));
 });
 
 app.post("/yourtimeline", (req, res) => {
   // console.log(req.body);
-  console.log(req.body[0]);
-  model.savePosts("jefftheli", req.body[0]);
+  // console.log(req.body[0]);
+  model.savePosts(currUser, req.body[0]);
   res.json({ status: "success" });
 });
 
