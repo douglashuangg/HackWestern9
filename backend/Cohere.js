@@ -42,7 +42,6 @@ rl.question(prompt, function (answer) {
                 return el != '';
             })
 
-
             // console.log(array)
             console.log('')
             // console.log('Choose a goal towards your future career (Enter an integer): ')
