@@ -5,10 +5,10 @@ export default function Login() {
     <div>
       <h1>Login</h1>
       <form action="/login" method="post">
-        <input type="text" placeholder="Username" name="username"/>
-        <input type="text" placeholder="Password" name="password"/>
+        <input type="text" placeholder="Username" name="username" />
+        <input type="text" placeholder="Password" name="password" />
         <button type="submit">Submit</button>
-    </form>
+      </form>
     </div>
   );
 }
