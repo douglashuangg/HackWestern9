@@ -15,7 +15,7 @@ const User = require("../models/user");
 // app.get("/", function (req, res) {
 //   res.render("index", {});
 // });
-// app.use(express.json());
+app.use(express.json());
 
 const uri =
   "mongodb+srv://jeffrey:03120312Jeff!@cluster0.emywofb.mongodb.net/Users?retryWrites=true&w=majority"; //
@@ -37,25 +37,25 @@ app.use(
   })
 );
 
-app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/public"));
 
-app.get("/login", function (req, res) {
+app.get("/login", (req, res) => {
   res.render("user");
 });
 
-app.post("/login", function (req, res) {
-  console.log(req.body.username);
+app.post("/login", (req, res) => {
+  //   console.log(req.body);
+  //   res.end();
   const user = new User({
-    username: req.body.username,
-    password: req.body.password,
+    username: "hi",
+    password: "hello",
   });
+  console.log(user);
   user.save(function (err) {
-    if (err) {
-      throw err;
-    } else {
-      res.render("user");
-    }
+    if (err) return console.error(err);
+    console.log("Document inserted succussfully!");
   });
+  //   res.end();
 });
 
 app.get("/api", (req, res) => {
