@@ -6,6 +6,7 @@ const app = express();
 const ejs = require("ejs");
 app.use(express.json());
 app.set("view engine", "ejs");
+currUser = "";
 
 model.read("jefftheli");
 
@@ -24,6 +25,7 @@ app.post("/login", (req, res) => {
     .then((data) => {
       if (data.username == username && data.password == password) {
         console.log(`Login successful`);
+        currUser = username;
         res.redirect("/yourtimeline");
       } else {
         console.log(password);
