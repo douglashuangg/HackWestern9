@@ -7,21 +7,27 @@ const ejs = require("ejs");
 app.use(express.json());
 app.set("view engine", "ejs");
 
+model.read("jefftheli");
+
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
 
-model.findOneListingByName();
+
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/login", (req, res) => {
-  res.render("user");
+app.post("/login", (req, res) => {
+  username = req.body.username
+  password = req.body.password
+  const checkLogin = model.read(username);
+  if (checkLogin.username == username && checkLogin.password == password) {
+    console.log("Login successful");
+    //res.redirect("/survey")
+  } 
 });
-
-app.post("/login", (req, res) => {});
 
 app.get("/api", (req, res) => {
   res.json({ message: "ligma balls" });
