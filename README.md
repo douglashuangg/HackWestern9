@@ -1,4 +1,4 @@
-# HackWestern9
+# BeSuccessful
 
 ## 💡 Inspiration
 Ability to document a holistic view of our success journey whether that be acquiring a dream job or simply exercising every day, BeSuccessful will celebrate the mini-steps towards your goals while encouraging you to strive for that big end goal/aspiration! We wished to create a social media that focused on making goal setting exciting and worth sharing! Instead of BeReal, BeSuccessful : )
