@@ -13,13 +13,13 @@ async function main() {
     await client.close();
   }
 }
-main().catch(console.error);
+// main().catch(console.error);
 
 async function findOneListingByName(client) {
   const result = await client
     .db("HACKWESTERN")
     .collection("Users")
-    .findOne({ firstname: "Jeffrey" });
+    .findOne({ firstname: "Collin" });
 
   if (result) {
     console.log(result);
@@ -27,3 +27,7 @@ async function findOneListingByName(client) {
     console.log(`No listings found with the name`);
   }
 }
+
+module.exports = {
+  findOneListingByName,
+};
