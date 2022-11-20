@@ -1,14 +1,13 @@
 import "./App.css";
 import React from "react";
 import Home from "./pages/home/Home";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
 // import Login from "./components/Login";
+import Login from "./pages/login/Login";
+import Profile from "./pages/profile/Profile";
+import Register from "./pages/register/Register";
 
 function App() {
-  return <Home />;
+  return <Profile />;
 }
 
 export default App;
