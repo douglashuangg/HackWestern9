@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../App.css";
 
 function Timeline() {
   const [data, setData] = useState({});
@@ -24,7 +25,7 @@ function Timeline() {
   }
 
   function savePost() {
-    const allData = [{ posts: data, goal: goal }];
+    const allData = [{ posts: data, goal: "goal" }];
     setReceivedPosts((prevState) => [...prevState, allData[0]]);
 
     console.log(allData);
@@ -48,49 +49,52 @@ function Timeline() {
   }
 
   return (
-    <div style={{ width: "120rem" }}>
-      <h1>Your Timeline</h1>
-      <label>Insight: </label>
-      <textarea
-        placeholder="What did you learn?"
-        onChange={updatePost}
-      ></textarea>
-      <span style={{ margin: "2rem" }}></span>
-      <label>Goal</label>
-      <textarea
-        placeholder="What goal is this under (should be select options)"
-        onChange={updateGoal}
-      ></textarea>
-      <button onClick={savePost}>Save</button>
-      {/* <p>{data.post}</p>
+    <>
+      <div style={{ width: "120rem" }}>
+        <h1>Your Timeline</h1>
+        <textarea
+          placeholder="What did you learn today?"
+          onChange={updatePost}
+        ></textarea>
+        <label>Goal</label>
+        <textarea
+          placeholder="What goal is this under (should be select options)"
+          onChange={updateGoal}
+        ></textarea>
+        <button className="button3" onClick={savePost}>
+          Save
+        </button>
+        {/* <p>{data.post}</p>
       <p>{goal.goal}</p> */}
 
-      {receivedPosts.reverse().map((item) => (
-        <div
-          style={{
-            padding: "0",
-            margin: "0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        {receivedPosts.reverse().map((item) => (
           <div
             style={{
-              height: "15rem",
-              width: "40rem",
-              border: "solid",
-              margin: "2rem 0",
+              padding: "0",
+              margin: "0",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <h1>Your highlight</h1>
-            <p>{item.posts}</p>
-            <p style={{ color: "red" }}>{item.goal}</p>
+            <div
+              style={{
+                height: "15rem",
+                width: "40rem",
+                border: "solid",
+                borderRadius: "2rem",
+                margin: "2rem 0",
+              }}
+            >
+              <h1 style={{ padding: "1rem 0 0 0" }}>Your highlight</h1>
+              <p>{item.posts}</p>
+              <p style={{ color: "red" }}>{item.goal}</p>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-    // </div>
+        ))}
+      </div>
+      {/* // </div> */}
+    </>
   );
 }
 

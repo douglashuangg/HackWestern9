@@ -7,8 +7,8 @@ client.connect();
 // client
 //   .db("HACKWESTERN")
 //   .collection("Users")
-//   .updateMany({}, { $set: { postValues: [{ posts: "", goal: "" }] } });
-//   db.yourCollection.updateMany({}, {$set:{"someField": "someValue"}})
+//   .updateMany({}, { $set: { postsFeed: [{ posts: "", goal: "" }] } });
+// db.yourCollection.updateMany({}, { $set: { someField: "someValue" } });
 
 async function create(firstname, username, password) {
   const result = await client.db("HACKWESTERN").collection("Users").insertOne({
@@ -81,7 +81,7 @@ async function savePosts(username, posts) {
     .updateOne(
       { username: username },
       {
-        $push: { postValues: postDataObject },
+        $push: { postsFeed: postDataObject },
       }
     );
 
@@ -94,16 +94,17 @@ async function savePosts(username, posts) {
 
 async function getAllUserPosts(username) {
   //   const result = await client.db("HACKWESTERN").collection("Users").save(posts);
-  username = "jefftheli";
-
+  // username = "jefftheli";
+  //   username = typeof username !== "undefined" ? "jefftheli" : username;
   let result = await client
     .db("HACKWESTERN")
     .collection("Users")
     .findOne({ username: username });
 
   if (result) {
-    console.log(result.postValues);
-    return result.postValues;
+    console.log("hello");
+    console.log(result.postsFeed);
+    return result.postsFeed;
   } else {
     console.log(`Get failed`);
   }

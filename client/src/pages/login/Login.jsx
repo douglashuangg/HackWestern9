@@ -1,9 +1,13 @@
 import "./login.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [username , setUsername] = useState();
-  const [password , setPassword] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+  const navigate = useNavigate();
+
   function updateUser(event) {
     setUsername(event.target.value);
   }
@@ -12,7 +16,8 @@ export default function Login() {
   }
 
   function saveUser() {
-    const data = {username: username , password: password};
+    navigate("/yourtimeline");
+    const data = { username: username, password: password };
     console.log(data);
     fetch("/login", {
       method: "POST",
@@ -24,13 +29,13 @@ export default function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:" , data);
+        console.log("Success:", data);
       })
       .catch((error) => {
-        console.error("Error:" , error)
-      })
+        console.error("Error:", error);
+      });
   }
-  
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -42,9 +47,20 @@ export default function Login() {
         </div>
         <div className="loginRight">
           <div className="loginBox">
-            <input placeholder="Username" className="loginInput" onChange={updateUser}/>
-            <input placeholder="Password" className="loginInput" onChange={updatePass}/>
-            <button className="loginButton" onClick={saveUser}>Log In</button>
+            <input
+              placeholder="Username"
+              className="loginInput"
+              onChange={updateUser}
+            />
+            <input
+              placeholder="Password"
+              className="loginInput"
+              type="password"
+              onChange={updatePass}
+            />
+            <button className="loginButton" onClick={saveUser}>
+              Log In
+            </button>
 
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">
