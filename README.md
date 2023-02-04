@@ -6,7 +6,7 @@
 ## Functionality 🚀 
 - MongoDB, Express.js, React.js, Node.js to create the login and saving and querying posts from the database. 
 - Incoporated many-to-many relationships with MongoDB to connect query all users under a particular career tag
-- Utilize co:here extraction to automatically tag your post based on content of post
+- Utilize co:here to automatically tag your post based on content of post
 - Implemented backend data validation
 
 ## Planned Design Functionality 🔮
